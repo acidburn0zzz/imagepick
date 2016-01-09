@@ -4,11 +4,13 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
+
+
+	<span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ImagePick</a>
+      <%= link_to "ImagePick", root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,11 +19,16 @@
       
       <ul class="nav navbar-nav navbar-right">
 
-         <li><%= link_to "Home", root_path, class: 'btn btn-default navbar-btn' %></li>
-         <li><%= link_to "About", home_about_path, class: 'btn btn-default navbar-btn' %></li>
-	 <li><%= link_to "LogIN" , new_user_session_path , class: 'btn btn-default navbar-btn' %></li>
-         <li><%= link_to "SignUP" , new_user_registration_path , class: 'btn btn-default navbar-btn' %></li>
-	 
+	  <li><%= link_to "Home", root_path, class: 'btn btn-default navbar-btn' %></li>
+	  <li><%= link_to "About", home_about_path, class: 'btn btn-default navbar-btn' %></li>
+	  
+	  <% if user_signed_in? %>
+	      <li><%= link_to "Settings",edit_user_registration_path, class: 'btn btn-default navbar-btn'%></li>
+	      <li><%= link_to "LogOut", destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn'%></li>
+	  <% else %>
+	      <li><%= link_to "LogIN" , new_user_session_path , class: 'btn btn-default navbar-btn' %></li>
+	      <li><%= link_to "SignUP" , new_user_registration_path , class: 'btn btn-default navbar-btn' %></li>
+	  <% end %>
         
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -2,8 +2,12 @@
 
 <h1>Welcome to ImagePick </h1>
 
-<%= link_to "LogIN" , new_user_session_path , class: 'btn btn-primary' %>
-<%= link_to "SignUP" , new_user_registration_path , class: 'btn btn-primary' %>
+<% if user_signed_in? %>
+    <%= link_to "LogOut", destroy_user_session_path , method: :delete, class: 'btn btn-primary'%>
+<% else %>
+    <%= link_to "LogIN" , new_user_session_path , class: 'btn btn-primary' %>
+    <%= link_to "SignUP" , new_user_registration_path , class: 'btn btn-primary' %>
 
+<% end %>
 
 </div>
