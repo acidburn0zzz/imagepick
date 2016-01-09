@@ -17,9 +17,11 @@
       
       <ul class="nav navbar-nav navbar-right">
 
-         <li><%= link_to "Home", root_path %></li>
-         <li><%= link_to "About", home_about_path %></li>
-        
+         <li><%= link_to "Home", root_path, class: 'btn btn-default navbar-btn' %></li>
+         <li><%= link_to "About", home_about_path, class: 'btn btn-default navbar-btn' %></li>
+	 <li><%= link_to "LogIN" , new_user_session_path , class: 'btn btn-default navbar-btn' %></li>
+         <li><%= link_to "SignUP" , new_user_registration_path , class: 'btn btn-default navbar-btn' %></li>
+	 
         
       </ul>
     </div><!-- /.navbar-collapse -->
