@@ -1,6 +1,8 @@
 class PicksController < ApplicationController
   before_action :set_pick, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
   # GET /picks
   # GET /picks.json
   def index
@@ -14,7 +16,7 @@ class PicksController < ApplicationController
 
   # GET /picks/new
   def new
-    @pick = Pick.new
+    @pick = current_user.picks.build
   end
 
   # GET /picks/1/edit
@@ -24,42 +26,31 @@ class PicksController < ApplicationController
   # POST /picks
   # POST /picks.json
   def create
-    @pick = Pick.new(pick_params)
-
-    respond_to do |format|
-      if @pick.save
-        format.html { redirect_to @pick, notice: 'Pick was successfully created.' }
-        format.json { render :show, status: :created, location: @pick }
-      else
-        format.html { render :new }
-        format.json { render json: @pick.errors, status: :unprocessable_entity }
-      end
+    @pick = current_user.picks.build(pick_params)
+    if @pick.save
+      redirect_to @pick, notice: 'pick was sucessfully created'
+    else
+      render action: 'new'
     end
   end
+   
 
   # PATCH/PUT /picks/1
   # PATCH/PUT /picks/1.json
   def update
-    respond_to do |format|
-      if @pick.update(pick_params)
-        format.html { redirect_to @pick, notice: 'Pick was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pick }
-      else
-        format.html { render :edit }
-        format.json { render json: @pick.errors, status: :unprocessable_entity }
-      end
-    end
+    if @pick.update(pick_params)
+     redirect_to @pick, notice: 'pin was sucessfully updated'
+   else
+     render action: 'edit'
+   end
   end
 
   # DELETE /picks/1
   # DELETE /picks/1.json
   def destroy
     @pick.destroy
-    respond_to do |format|
-      format.html { redirect_to picks_url, notice: 'Pick was successfully destroyed.' }
-      format.json { head :no_content }
+    redirect_to picks_url, notice: 'pin was sucessfully destroyed'
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,4 +62,11 @@ class PicksController < ApplicationController
     def pick_params
       params.require(:pick).permit(:caption)
     end
+end
+
+
+def correct_user
+  @pick = current_user.picks.find_by(id: params[:id])
+  redirect_to picks_path, notice: "not authorized to edit this pin" if @pick.nil?
+
 end
