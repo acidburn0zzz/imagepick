@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :picks
   devise_for :users
    get 'home/about'
    root 'home#index'

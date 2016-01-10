@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+	
+	<p>
+	    <strong>Caption:</strong>
+    <%= @pick.caption %>
+	</p>
+
+    </div>
+    <div class="panel-footer">
+    <%= link_to 'Edit', edit_pick_path(@pick) , class: 'btn btn-warning' %> 
+    <%= link_to 'Back', picks_path , class: 'btn btn-warning'%>
+
+</div>
+</div>
