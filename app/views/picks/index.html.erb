@@ -13,6 +13,7 @@
     <tbody>
 	<% @picks.each do |pick| %>
 	    <tr>
+		<td><%= image_tag pick.image.url(:thumb)%></td>
 		<td><%= pick.caption %></td>
 		<td><%= link_to 'Show', pick , class: 'btn btn-default'%></td>
 		<td><%= link_to 'Edit', edit_pick_path(pick), class: 'btn btn-default' %></td>
