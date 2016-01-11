@@ -13,17 +13,20 @@
     <tbody>
 	<% @picks.each do |pick| %>
 	    <tr>
+		<td><%= pick.user.name if pick.user %><br />
 		<td><%= image_tag pick.image.url(:thumb)%></td>
 		<td><%= pick.caption %></td>
 		<td><%= link_to 'Show', pick , class: 'btn btn-default'%></td>
+		<% if pick.user == current_user %>
 		<td><%= link_to 'Edit', edit_pick_path(pick), class: 'btn btn-default' %></td>
 		<td><%= link_to 'Destroy', pick, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
 	    </tr>
-	<% end %>
+		<% end %>
+		<% end %>
     </tbody>
 </table>
 
 <br>
 
 </div>
-<%= link_to 'New Pick', new_pick_path , class: 'btn btn-success'%>
+

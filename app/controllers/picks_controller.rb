@@ -60,7 +60,7 @@ class PicksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pick_params
-      params.require(:pick).permit(:caption , :image)
+      params.require(:pick).permit(:caption , :image, :name)
     end
 end
 
