@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+
+
+
+
+
+  get 'pages/post1'
+
+  get 'pages/post2'
+
+  get 'pages/post3'
+
+  get 'pages/post4'
+
+  get 'pages/post5'
+
   resources :picks
   devise_for :users
    get 'home/about'
