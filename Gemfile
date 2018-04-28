@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -27,8 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 #using devise
 gem 'devise'
-#installing paperclip gem
-gem 'paperclip'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -54,3 +52,11 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'actionview', '~> 4.2.7.1'
+gem 'activerecord',' ~> 4.2.7.1'
+gem 'loofah',' ~> 2.2.1'
+gem 'nokogiri',' ~> 1.8.2'
+gem 'paperclip', '~> 5.2.0'
+gem 'rails-html-sanitizer',' ~> 1.0.4'
+
