@@ -92,11 +92,12 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.5.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.11.0)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     paperclip (5.2.1)
       activemodel (>= 4.2.0)
@@ -105,6 +106,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (1.0.0)
+    racc (1.5.2)
     rack (1.6.10)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -196,7 +198,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   loofah (~> 2.2.1)
-  nokogiri (~> 1.8.2)
+  nokogiri (~> 1.11.0)
   paperclip (~> 5.2.0)
   pg
   rails
