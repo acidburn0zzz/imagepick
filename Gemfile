@@ -56,7 +56,7 @@ end
 gem 'actionview', '~> 4.2.7.1'
 gem 'activerecord',' ~> 4.2.7.1'
 gem 'loofah',' ~> 2.2.1'
-gem 'nokogiri',' ~> 1.8.2'
+gem 'nokogiri','~> 1.11.4'
 gem 'paperclip', '~> 5.2.0'
 gem 'rails-html-sanitizer',' ~> 1.0.4'
 
